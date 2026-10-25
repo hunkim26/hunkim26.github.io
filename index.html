@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research & Writing Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column; manuscript-paper (원고지) grid as the one bold motif in the hero */
+:root{
+  --paper:#F2F5F2; --surface:#FFFFFF; --ink:#16212A; --muted:#5A6870;
+  --grid:#C9DDD1; --line:#DCE5E0; --accent:#1F6B53; --accent-ink:#FFFFFF; --flag:#FFF3C4; --flag-ink:#5A4A00;
+  --t-paper:#2E5E8C; --t-talk:#8A5A1E; --t-article:#1F6B53; --t-press:#6B4E9B;
+  --display:"Hahmlet","Nanum Myeongjo",Georgia,serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --cell:clamp(34px,7.4vw,58px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1618; --surface:#162024; --ink:#E4ECE7; --muted:#92A199;
+  --grid:#24372F; --line:#22302B; --accent:#74C6A3; --accent-ink:#0F1618; --flag:#3A3315; --flag-ink:#F3E3A0;
+  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1618; --surface:#162024; --ink:#E4ECE7; --muted:#92A199;
+  --grid:#24372F; --line:#22302B; --accent:#74C6A3; --accent-ink:#0F1618; --flag:#3A3315; --flag-ink:#F3E3A0;
+  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.sample{background:var(--flag);color:var(--flag-ink);font-size:13px;text-align:center;padding:6px 12px}
+
+/* top bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{font:600 18px/1 var(--display);letter-spacing:-.01em;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
+nav.sections{display:flex;gap:18px;margin-left:auto;font-size:14px;color:var(--muted)}
+nav.sections button{background:none;border:0;padding:4px 0;cursor:pointer;white-space:nowrap}
+nav.sections button:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--surface)}
+.lang button{border:0;background:none;padding:4px 11px;border-radius:999px;font:500 12px/1.4 var(--mono);letter-spacing:.06em;cursor:pointer;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){nav.sections{display:none}.lang{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vw,96px) 40px}
+.role{font:500 12px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.name{font:700 clamp(40px,8vw,76px)/1.05 var(--display);letter-spacing:-.02em;margin:0 0 28px;text-wrap:balance}
+.manuscript{display:flex;flex-wrap:wrap;max-width:100%;border-top:1.5px solid var(--grid);border-left:1.5px solid var(--grid);width:fit-content;margin-bottom:28px}
+.manuscript span{width:var(--cell);height:var(--cell);display:grid;place-items:center;border-right:1.5px solid var(--grid);border-bottom:1.5px solid var(--grid);font:600 calc(var(--cell)*.52)/1 var(--display);color:var(--accent);animation:ink .5s both;animation-delay:calc(var(--i)*55ms)}
+@keyframes ink{from{color:transparent}to{color:var(--accent)}}
+@media (prefers-reduced-motion:reduce){.manuscript span{animation:none}}
+.intro{font-size:clamp(17px,2.1vw,19px);max-width:36em;margin:0 0 22px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;font:400 13px/1.3 var(--mono);color:var(--muted)}
+.stats button{background:none;border:0;padding:0;text-align:left;cursor:pointer;color:inherit}
+.stats button:hover b{color:var(--accent)}
+.stats b{display:block;font:600 26px/1.1 var(--display);color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.cvlink{display:inline-block;margin-top:22px;font-size:14px;color:var(--accent);font-weight:500}
+
+/* sections */
+section.block{padding-block:56px;border-top:1px solid var(--line)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+h2{font:600 clamp(26px,3.4vw,34px)/1.2 var(--display);margin:0 0 28px;letter-spacing:-.01em;text-wrap:balance}
+
+/* type badge */
+.type{font:500 11px/1 var(--mono);letter-spacing:.06em;padding:4px 7px;border-radius:3px;border:1px solid currentColor;white-space:nowrap}
+.type.paper{color:var(--t-paper)} .type.talk{color:var(--t-talk)} .type.article{color:var(--t-article)} .type.press{color:var(--t-press)}
+
+/* featured */
+.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.feat{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;text-decoration:none;min-width:0;transition:border-color .2s,transform .2s}
+.feat[href]:hover{border-color:var(--accent);transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.feat,.feat:hover{transition:none;transform:none}}
+.feat .meta{font:400 12px/1.4 var(--mono);color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.feat h3{font:600 20px/1.35 var(--display);margin:0;text-wrap:balance}
+.feat p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.feat .venue{font-size:13px;color:var(--muted)}
+
+/* tabs + filters */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:8px 12px;cursor:pointer;color:var(--muted);font-size:15px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.tabs .n{font:400 12px var(--mono);margin-left:4px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.filters input,.filters select{font:inherit;font-size:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-width:0;max-width:100%}
+.filters input{flex:1 1 200px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.count{font:400 13px/1 var(--mono);color:var(--muted);margin:16px 0 0}
+
+/* works list */
+ul.list{list-style:none;margin:8px 0 0;padding:0}
+ul.list > li{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.d{font:400 13px/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.body{min-width:0}
+.t{font:600 18px/1.4 var(--display);text-decoration:none}
+a.t:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.au{font-size:14px;margin-top:4px}
+.au b{font-weight:600;text-decoration:underline;text-decoration-color:var(--grid);text-underline-offset:3px;text-decoration-thickness:2px}
+.sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:4px}
+.sub .tag{color:var(--accent)}
+.prize{font:600 11px/1 var(--mono);letter-spacing:.04em;color:var(--t-talk);border:1px solid currentColor;border-radius:999px;padding:3px 8px;align-self:flex-start}
+.orig{font:500 11px/1 var(--mono);border:1px solid var(--line);border-radius:3px;padding:3px 5px;letter-spacing:.04em}
+.lk{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font:500 12px/1 var(--mono)}
+.lk a{color:var(--accent);text-decoration:none}
+.lk a:hover{text-decoration:underline}
+.empty{display:block!important;padding:28px 0;color:var(--muted)}
+@media (max-width:560px){ul.list > li{grid-template-columns:1fr;gap:6px}.d{flex-direction:row;align-items:center}}
+
+/* career timeline */
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--grid);margin-left:6px}
+.timeline li{position:relative;display:grid;grid-template-columns:170px 1fr;gap:18px;padding:0 0 26px 24px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+.timeline li.now::before{background:var(--accent)}
+.timeline .p{font:400 13px/1.7 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline .r{font:600 18px/1.4 var(--display)}
+.timeline .o{font-size:15px}
+.timeline .x{font-size:14px;color:var(--muted)}
+@media (max-width:560px){.timeline li{grid-template-columns:1fr;gap:2px}}
+
+/* awards */
+ul.awards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.awards li{display:grid;grid-template-columns:96px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+ul.awards .d{display:block}
+ul.awards .at{font:600 17px/1.4 var(--display)}
+ul.awards .ao{font-size:14px;color:var(--muted)}
+@media (max-width:560px){ul.awards li{grid-template-columns:1fr;gap:4px}}
+
+/* venues */
+.vgroup{margin-bottom:22px}
+.vgroup h3{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.venues{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.venue-card{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-width:0}
+.venue-card button{background:none;border:0;padding:0;text-align:left;cursor:pointer;min-width:0}
+.venue-card .on{font-weight:600;display:block}
+.venue-card .n{font:400 12px/1.4 var(--mono);color:var(--muted)}
+.venue-card a{font-size:13px;color:var(--accent);text-decoration:none;white-space:nowrap}
+
+/* reports */
+.rintro{max-width:40em;margin:0 0 6px;color:var(--muted)}
+.ryear{font:600 13px/1 var(--mono);letter-spacing:.08em;color:var(--muted);margin:26px 0 6px;display:flex;gap:10px;align-items:baseline}
+.ryear span{font-weight:400}
+ul.rlist{list-style:none;margin:0;padding:0}
+ul.rlist li{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+ul.rlist .rt{font-size:15px;min-width:0}
+ul.rlist a.rt{text-decoration:none}
+ul.rlist a.rt:hover{color:var(--accent);text-decoration:underline}
+ul.rlist .rc{font-size:12px;color:var(--muted);white-space:nowrap}
+.more{margin-top:18px}
+@media (max-width:560px){ul.rlist li{grid-template-columns:1fr;gap:2px}ul.rlist .rc{white-space:normal}}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr;gap:28px}
+.about.with-photo{grid-template-columns:200px 1fr}
+.about img{width:100%;max-width:200px;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.about p{max-width:38em;margin:0 0 14px}
+@media (max-width:560px){.about.with-photo{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.mail{font:600 clamp(20px,3vw,26px)/1.3 var(--display);user-select:all;word-break:break-all}
+.btn{border:1px solid var(--ink);background:none;border-radius:6px;padding:7px 14px;font-size:14px;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.social{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;font-size:15px}
+.social a{color:var(--accent);text-decoration:none}
+.social a:hover{text-decoration:underline}
+footer{padding-block:40px;color:var(--muted);font:400 12px/1.5 var(--mono);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div id="sample" class="sample" hidden></div>
+
+<header class="top">
+  <div class="wrap">
+    <button class="brand" id="brand" data-go="top"></button>
+    <nav class="sections" aria-label="Sections">
+      <button data-go="works" data-i18n="nav_works"></button>
+      <button data-go="education" data-i18n="nav_edu"></button>
+      <button data-go="career" data-i18n="nav_career"></button>
+      <button data-go="ref" data-i18n="nav_ref"></button>
+      <button data-go="reports" data-i18n="nav_reports"></button>
+      <button data-go="awards" data-i18n="nav_awards"></button>
+      <button data-go="about" data-i18n="nav_about"></button>
+      <button data-go="contact" data-i18n="nav_contact"></button>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-ko" data-lang="ko">KO</button>
+      <button id="lang-en" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero" id="top">
+    <p class="role" id="role"></p>
+    <h1 class="name" id="name"></h1>
+    <div class="manuscript" id="motto" aria-hidden="true"></div>
+    <p class="intro" id="intro"></p>
+    <div class="stats" id="stats"></div>
+    <a class="cvlink" id="cv" target="_blank" rel="noopener" hidden></a>
+  </div>
+
+  <section class="block" id="selected">
+    <div class="wrap">
+      <p class="eyebrow">Selected</p>
+      <h2 data-i18n="h_selected"></h2>
+      <div class="featured" id="featured"></div>
+    </div>
+  </section>
+
+  <section class="block" id="works">
+    <div class="wrap">
+      <p class="eyebrow">Research &amp; Writing</p>
+      <h2 data-i18n="h_works"></h2>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="filters">
+        <input id="q" type="search" autocomplete="off">
+        <select id="f-venue"></select>
+        <select id="f-year"></select>
+      </div>
+      <div class="chips" id="f-tags"></div>
+      <p class="count" id="count"></p>
+      <ul class="list" id="list"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <p class="eyebrow">Education</p>
+      <h2 data-i18n="h_edu"></h2>
+      <ul class="timeline" id="edu-list"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="career">
+    <div class="wrap">
+      <p class="eyebrow">Experience</p>
+      <h2 data-i18n="h_career"></h2>
+      <ul class="timeline" id="career-list"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="ref">
+    <div class="wrap">
+      <p class="eyebrow">Reporting</p>
+      <h2 data-i18n="h_ref"></h2>
+      <p class="rintro" id="aintro"></p>
+      <div class="chips" id="a-cats"></div>
+      <div id="a-list"></div>
+      <button class="btn more" id="a-more" hidden></button>
+    </div>
+  </section>
+
+  <section class="block" id="reports">
+    <div class="wrap">
+      <p class="eyebrow">Event Reports</p>
+      <h2 data-i18n="h_reports"></h2>
+      <p class="rintro" id="rintro"></p>
+      <div class="chips" id="r-cats"></div>
+      <div id="r-list"></div>
+      <button class="btn more" id="r-more" hidden></button>
+    </div>
+  </section>
+
+  <section class="block" id="awards">
+    <div class="wrap">
+      <p class="eyebrow">Honours</p>
+      <h2 data-i18n="h_awards"></h2>
+      <ul class="awards" id="award-list"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="certs">
+    <div class="wrap">
+      <p class="eyebrow">Certifications</p>
+      <h2 data-i18n="h_certs"></h2>
+      <ul class="awards" id="cert-list"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="venues">
+    <div class="wrap">
+      <p class="eyebrow">Venues</p>
+      <h2 data-i18n="h_venues"></h2>
+      <div id="venue-list"></div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h2 data-i18n="h_about"></h2>
+      <div class="about" id="about-body"></div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 data-i18n="h_contact"></h2>
+      <div class="contact">
+        <span class="mail" id="mail"></span>
+        <button class="btn" id="copy" data-i18n="copy"></button>
+      </div>
+      <div class="social" id="social"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script src="content.js"></script>
+<script>
+(function(){
+  var P = window.PORTFOLIO;
+  var TYPES = ["paper","talk","article","press"];
+  var UI = {
+    ko:{nav_works:"연구·글",nav_edu:"학력",nav_career:"경력",h_edu:"학력",h_reports:"행사 보고서",h_ref:"기자단 기사",nav_ref:"기사",co:"공동",h_certs:"자격증",nav_reports:"행사 보고서",rAll:"전체",rMore:function(n){return "전체 "+n+"건 보기"},rLess:"접기",rCount:"건",nav_awards:"수상",nav_about:"소개",nav_contact:"연락",
+        h_selected:"대표 성과",h_works:"연구와 글",h_career:"경력",h_awards:"수상",h_venues:"게재처",
+        h_about:"소개",h_contact:"연락하기",copy:"주소 복사",copied:"복사됨",
+        type:{paper:"논문",talk:"학술발표",article:"기사",press:"보도"},
+        typePl:{paper:"논문",talk:"학술발표",article:"작성 기사",press:"언론 보도"},
+        all:"전체",search:"제목·저자 검색",allVenues:"모든 게재처",allYears:"모든 연도",allTags:"모든 주제",
+        items:"건",awards:"수상",since:"첫 성과",read:"원문 ↗",visit:"홈페이지 ↗",now:"현재",cv:"이력서 PDF 보기 ↗",cert:"상장 보기 (PDF) ↗",slides:"발표자료 (PDF) ↗",
+        shown:function(n,t){return n+"건 / 전체 "+t+"건"},
+        empty:"조건에 맞는 항목이 없습니다.",origEN:"영문",origKO:"국문",
+        sample:"지금 보이는 이름과 내용은 예시입니다. content.js 를 고쳐 내 내용으로 바꾸세요."},
+    en:{nav_works:"Work",nav_edu:"Education",nav_career:"Experience",h_edu:"Education",h_reports:"Event reports",h_ref:"Reporting",nav_ref:"Articles",co:"Co-written",h_certs:"Certifications",nav_reports:"Reports",rAll:"All",rMore:function(n){return "Show all "+n},rLess:"Show fewer",rCount:"",nav_awards:"Awards",nav_about:"About",nav_contact:"Contact",
+        h_selected:"Selected work",h_works:"Research & writing",h_career:"Experience",h_awards:"Awards & honours",h_venues:"Where my work appears",
+        h_about:"About me",h_contact:"Get in touch",copy:"Copy address",copied:"Copied",
+        type:{paper:"Paper",talk:"Talk",article:"Article",press:"Press"},
+        typePl:{paper:"Papers",talk:"Talks",article:"My articles",press:"In the press"},
+        all:"All",search:"Search titles & authors",allVenues:"All venues",allYears:"All years",allTags:"All topics",
+        items:"items",awards:"Awards",since:"Active since",read:"Read ↗",visit:"Website ↗",now:"Present",cv:"View CV (PDF) ↗",cert:"View certificate (PDF) ↗",slides:"Slides / poster (PDF) ↗",
+        shown:function(n,t){return n+" of "+t+" items"},
+        empty:"Nothing matches these filters.",origEN:"EN",origKO:"In Korean",
+        sample:"The name and entries shown are examples. Edit content.js to add your own."}
+  };
+
+  var lang = "ko";
+  try{ var qp=new URLSearchParams(location.search).get("lang"); if(qp==="en"||qp==="ko") lang=qp; }catch(e){}
+  if(location.hash==="#en"||location.hash==="#ko") lang=location.hash.slice(1);
+  else { try{ var s=localStorage.getItem("pf-lang"); if(s==="en"||s==="ko") lang=s; }catch(e){} }
+
+  var state = {type:"", q:"", venue:"", year:"", tag:""};
+  var ARCH = {
+    r:{data:"reports",cats:"reportCats",intro:"reportsIntro",sec:"reports",cat:"",all:false},
+    a:{data:"refArticles",cats:"refCats",intro:"refIntro",sec:"ref",cat:"",all:false}
+  };
+  var $ = function(id){return document.getElementById(id)};
+  var t = function(v){ if(v==null) return ""; if(typeof v!=="object") return String(v); return v[lang]||v.ko||v.en||""; };
+  var esc = function(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]}); };
+  var fmt = function(d){ return d ? String(d).replace(/-/g,".") : ""; };
+  var byDate = function(k){ return function(a,b){ return String(a[k])<String(b[k])?1:-1; }; };
+  var venueById = {}; (P.venues||[]).forEach(function(v){venueById[v.id]=v});
+  var works = (P.works||[]).slice().sort(byDate("date"));
+  var tagName = function(k){ return P.tagNames&&P.tagNames[k] ? t(P.tagNames[k]) : k; };
+  var vName = function(id){ var v=venueById[id]; return v ? t(v.name) : (id||""); };
+
+  function authorsHTML(a){
+    var s = esc(a||"");
+    (P.myNames||[]).slice().sort(function(x,y){return y.length-x.length}).forEach(function(n){
+      if(!n) return; var e=esc(n);
+      s = s.split(e).join("\u0000"+e+"\u0001");
+    });
+    return s.replace(/\u0000/g,"<b>").replace(/\u0001/g,"</b>").replace(/<b><b>/g,"<b>").replace(/<\/b><\/b>/g,"</b>");
+  }
+  function badge(type){ return '<span class="type '+type+'">'+UI[lang].type[type]+'</span>'; }
+
+  function render(){
+    var u=UI[lang];
+    document.documentElement.lang = lang;
+    document.title = t(P.name) + (lang==="ko" ? " · 포트폴리오" : " · Portfolio");
+    document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent=u[el.dataset.i18n]; });
+    $("lang-ko").setAttribute("aria-pressed", lang==="ko");
+    $("lang-en").setAttribute("aria-pressed", lang==="en");
+    $("brand").textContent = t(P.name);
+    $("role").textContent = t(P.role);
+    $("name").textContent = t(P.name);
+    $("intro").textContent = t(P.intro);
+    $("q").placeholder = u.search; $("q").setAttribute("aria-label", u.search);
+    $("sample").hidden=!P.sample; $("sample").textContent=u.sample;
+    $("cv").hidden=!t(P.cv); if(t(P.cv)){ $("cv").href=t(P.cv); $("cv").textContent=u.cv; }
+
+    $("motto").innerHTML = Array.from(t(P.motto)).map(function(c,i){
+      return '<span style="--i:'+i+'">'+(c===" "?"&nbsp;":esc(c))+'</span>'; }).join("");
+
+    // stats
+    var cnt={}; works.forEach(function(w){cnt[w.type]=(cnt[w.type]||0)+1});
+    var stats = TYPES.filter(function(k){return cnt[k]}).map(function(k){
+      return '<button data-jump="'+k+'"><b>'+cnt[k]+'</b>'+u.typePl[k]+'</button>'; });
+    if((P.refArticles||[]).length) stats.push('<button data-go2="ref"><b>'+P.refArticles.length+'</b>'+u.h_ref+'</button>');
+    if((P.awards||[]).length) stats.push('<button data-go2="awards"><b>'+P.awards.length+'</b>'+u.awards+'</button>');
+    $("stats").innerHTML = stats.join("");
+
+    // featured
+    var feats = works.filter(function(w){return w.featured});
+    $("selected").hidden = !feats.length;
+    $("featured").innerHTML = feats.map(function(w){
+      var open = w.url ? '<a class="feat" href="'+esc(w.url)+'" target="_blank" rel="noopener">' : '<div class="feat">';
+      return open+
+        '<span class="meta">'+badge(w.type)+'<span>'+fmt(w.date)+'</span></span>'+
+        '<h3>'+esc(t(w.title))+'</h3>'+
+        (w.award?'<span class="prize">'+esc(t(w.award))+'</span>':'')+
+        '<p>'+esc(t(w.summary))+'</p>'+
+        '<span class="venue">'+esc(vName(w.venue))+'</span>'+(w.url?'</a>':'</div>');
+    }).join("");
+
+    // tabs
+    $("tabs").innerHTML = ['<button role="tab" data-type="">'+u.all+'<span class="n">'+works.length+'</span></button>'].concat(
+      TYPES.filter(function(k){return cnt[k]}).map(function(k){
+        return '<button role="tab" data-type="'+k+'">'+u.typePl[k]+'<span class="n">'+cnt[k]+'</span></button>'; })).join("");
+
+    // selects
+    $("f-venue").innerHTML='<option value="">'+u.allVenues+'</option>'+(P.venues||[]).map(function(v){
+      return '<option value="'+esc(v.id)+'">'+esc(t(v.name))+'</option>'}).join("");
+    $("f-venue").value=state.venue;
+    var years={}; works.forEach(function(w){years[String(w.date).slice(0,4)]=1});
+    $("f-year").innerHTML='<option value="">'+u.allYears+'</option>'+Object.keys(years).sort().reverse().map(function(y){
+      return '<option value="'+y+'">'+y+'</option>'}).join("");
+    $("f-year").value=state.year;
+    var tags={}; works.forEach(function(w){(w.tags||[]).forEach(function(k){tags[k]=1})});
+    $("f-tags").innerHTML=['<button class="chip" data-tag="">'+u.allTags+'</button>'].concat(
+      Object.keys(tags).map(function(k){return '<button class="chip" data-tag="'+esc(k)+'">'+esc(tagName(k))+'</button>'})).join("");
+
+    // education + career timelines
+    function timeline(list, sec, el){
+    var car=(list||[]).slice().sort(byDate("start"));
+    $(sec).hidden=!car.length;
+    $(el).innerHTML=car.map(function(c){
+      return '<li class="'+(c.end?"":"now")+'"><span class="p">'+fmt(c.start)+' – '+(c.end?fmt(c.end):u.now)+'</span>'+
+        '<div><div class="r">'+esc(t(c.role))+'</div><div class="o">'+(c.url?'<a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(t(c.org))+' ↗</a>':esc(t(c.org)))+'</div>'+
+        (c.note?'<div class="x">'+esc(t(c.note))+'</div>':'')+'</div></li>';
+    }).join("");
+    }
+    timeline(P.education,"education","edu-list");
+    timeline(P.career,"career","career-list");
+
+    // archives: event reports + reporting
+    Object.keys(ARCH).forEach(function(p){
+      var A=ARCH[p], list=(P[A.data]||[]);
+      $(A.sec).hidden=!list.length;
+      $(p+"intro").textContent=t(P[A.intro]);
+      var rc={}; list.forEach(function(r){rc[r.cat]=(rc[r.cat]||0)+1});
+      $(p+"-cats").innerHTML=['<button class="chip" data-cat="">'+u.rAll+' '+list.length+'</button>'].concat(
+        (P[A.cats]||[]).filter(function(k){return rc[k.id]}).map(function(k){
+          return '<button class="chip" data-cat="'+esc(k.id)+'">'+esc(t(k.name))+' '+rc[k.id]+'</button>'})).join("");
+      renderArchive(p);
+    });
+
+    // awards
+    var aw=(P.awards||[]).slice().sort(byDate("date"));
+    $("awards").hidden=!aw.length;
+    $("award-list").innerHTML=aw.map(function(a){
+      var title = a.url ? '<a class="at" href="'+esc(a.url)+'" target="_blank" rel="noopener">'+esc(t(a.title))+' ↗</a>' : '<span class="at">'+esc(t(a.title))+'</span>';
+      return '<li><span class="d">'+fmt(a.date)+'</span><div>'+title+
+        '<div class="ao">'+esc(t(a.org))+(a.note?' · '+esc(t(a.note)):'')+'</div>'+
+        (a.pdf?'<div class="lk"><a href="'+esc(a.pdf)+'" target="_blank" rel="noopener">'+u.cert+'</a></div>':'')+'</div></li>';
+    }).join("");
+
+    // certifications
+    var cs=(P.certs||[]).slice().sort(byDate("date"));
+    $("certs").hidden=!cs.length;
+    $("cert-list").innerHTML=cs.map(function(a){
+      return '<li><span class="d">'+fmt(a.date)+'</span><div><span class="at">'+esc(t(a.title))+'</span>'+
+        '<div class="ao">'+esc(t(a.org))+(a.note?' · '+esc(t(a.note)):'')+'</div>'+
+        (a.pdf?'<div class="lk"><a href="'+esc(a.pdf)+'" target="_blank" rel="noopener">PDF ↗</a></div>':'')+'</div></li>';
+    }).join("");
+
+    // venues grouped by dominant type
+    var vc={}; works.forEach(function(w){ vc[w.venue]=vc[w.venue]||{n:0,type:w.type}; vc[w.venue].n++; });
+    var groups={paper:[],talk:[],article:[],press:[]};
+    (P.venues||[]).forEach(function(v){ var g=(vc[v.id]&&vc[v.id].type)||"article"; groups[g].push(v); });
+    $("venue-list").innerHTML=TYPES.filter(function(k){return groups[k].length}).map(function(k){
+      return '<div class="vgroup"><h3>'+u.typePl[k]+'</h3><div class="venues">'+groups[k].map(function(v){
+        return '<div class="venue-card"><button data-venue="'+esc(v.id)+'"><span class="on">'+esc(t(v.name))+'</span>'+
+          '<span class="n">'+((vc[v.id]&&vc[v.id].n)||0)+' '+u.items+'</span></button>'+
+          (v.url?'<a href="'+esc(v.url)+'" target="_blank" rel="noopener">'+u.visit+'</a>':'')+'</div>';
+      }).join("")+'</div></div>';
+    }).join("");
+
+    // about
+    var ab=$("about-body");
+    ab.className="about"+(P.photo?" with-photo":"");
+    var paras=(P.about&&(P.about[lang]||P.about.ko))||[];
+    ab.innerHTML=(P.photo?'<img src="'+esc(P.photo)+'" alt="'+esc(t(P.name))+'">':'')+
+      '<div>'+paras.map(function(p){return '<p>'+esc(p)+'</p>'}).join("")+'</div>';
+
+    $("mail").textContent=P.email||"";
+    $("social").innerHTML=(P.links||[]).map(function(l){
+      return '<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.label)+' ↗</a>'}).join("");
+    $("foot").textContent="© "+new Date().getFullYear()+" "+t(P.name);
+
+    renderList();
+  }
+
+  function renderList(){
+    var u=UI[lang], q=state.q.trim().toLowerCase();
+    document.querySelectorAll("#tabs button").forEach(function(b){ b.setAttribute("aria-selected", b.dataset.type===state.type); });
+    document.querySelectorAll("#f-tags .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.tag===state.tag); });
+    var shown=works.filter(function(w){
+      if(state.type && w.type!==state.type) return false;
+      if(state.venue && w.venue!==state.venue) return false;
+      if(state.year && String(w.date).slice(0,4)!==state.year) return false;
+      if(state.tag && (w.tags||[]).indexOf(state.tag)<0) return false;
+      if(q){ var hay=[w.title&&w.title.ko,w.title&&w.title.en,JSON.stringify(w.authors||""),vName(w.venue)].join(" ").toLowerCase();
+             if(hay.indexOf(q)<0) return false; }
+      return true;
+    });
+    $("count").textContent=u.shown(shown.length,works.length);
+    $("list").innerHTML = shown.length ? shown.map(function(w){
+      var orig = w.lang && w.lang!==lang ? '<span class="orig">'+(w.lang==="ko"?u.origKO:u.origEN)+'</span>' : '';
+      var title = w.url ? '<a class="t" href="'+esc(w.url)+'" target="_blank" rel="noopener">'+esc(t(w.title))+'</a>' : '<span class="t">'+esc(t(w.title))+'</span>';
+      var links=[];
+      if(w.url) links.push('<a href="'+esc(w.url)+'" target="_blank" rel="noopener">'+u.read+'</a>');
+      if(w.doi) links.push('<a href="https://doi.org/'+esc(w.doi)+'" target="_blank" rel="noopener">DOI '+esc(w.doi)+'</a>');
+      (w.also||[]).forEach(function(l){ links.push('<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(t(l.label))+' ↗</a>'); });
+      if(w.pdf) links.push('<a href="'+esc(w.pdf)+'" target="_blank" rel="noopener">'+(w.type==="talk"?u.slides:"PDF ↗")+'</a>');
+      return '<li><span class="d">'+fmt(w.date)+badge(w.type)+'</span><div class="body">'+title+
+        (w.authors?'<div class="au">'+authorsHTML(t(w.authors))+'</div>':'')+
+        '<div class="sub"><span>'+esc(vName(w.venue))+(w.detail?', '+esc(t(w.detail)):'')+'</span>'+
+        (w.tags||[]).map(function(k){return '<span class="tag">#'+esc(tagName(k))+'</span>'}).join("")+orig+
+        (w.award?'<span class="prize">'+esc(t(w.award))+'</span>':'')+'</div>'+
+        (links.length?'<div class="lk">'+links.join("")+'</div>':'')+'</div></li>';
+    }).join("") : '<li class="empty">'+u.empty+'</li>';
+  }
+
+  function renderArchive(p){
+    var u=UI[lang], LIMIT=10, A=ARCH[p];
+    var catName={}; (P[A.cats]||[]).forEach(function(k){catName[k.id]=t(k.name)});
+    document.querySelectorAll("#"+p+"-cats .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.cat===A.cat); });
+    var all=(P[A.data]||[]).filter(function(r){return !A.cat||r.cat===A.cat}).slice().sort(byDate("date"));
+    var shown = A.all ? all : all.slice(0,LIMIT);
+    var byYear={}, years=[];
+    shown.forEach(function(r){ var y=r.date.slice(0,4); if(!byYear[y]){byYear[y]=[];years.push(y)} byYear[y].push(r); });
+    var totals={}; all.forEach(function(r){var y=r.date.slice(0,4); totals[y]=(totals[y]||0)+1});
+    $(p+"-list").innerHTML=years.map(function(y){
+      return '<h3 class="ryear">'+y+'<span>'+totals[y]+(u.rCount?u.rCount:"")+'</span></h3><ul class="rlist">'+byYear[y].map(function(r){
+        var title=r.url?'<a class="rt" href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(t(r.title))+' ↗</a>':'<span class="rt">'+esc(t(r.title))+'</span>';
+        return '<li><span class="d">'+fmt(r.date)+'</span>'+title+'<span class="rc">'+esc(catName[r.cat]||"")+(r.co?' · '+u.co:'')+'</span></li>';
+      }).join("")+'</ul>';
+    }).join("");
+    var mb=$(p+"-more"); mb.hidden = all.length<=LIMIT;
+    mb.textContent = A.all ? u.rLess : u.rMore(all.length);
+  }
+
+  function jumpType(k){ state.type=k; renderList(); $("works").scrollIntoView(); }
+
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click",function(){ lang=b.dataset.lang; try{localStorage.setItem("pf-lang",lang)}catch(e){} render(); });
+  });
+  document.querySelectorAll("[data-go]").forEach(function(b){
+    b.addEventListener("click",function(){ $(b.dataset.go).scrollIntoView(); });
+  });
+  $("stats").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.jump) jumpType(b.dataset.jump); else if(b.dataset.go2) $(b.dataset.go2).scrollIntoView();
+  });
+  $("tabs").addEventListener("click",function(e){ var b=e.target.closest("button"); if(b){ state.type=b.dataset.type; renderList(); } });
+  $("q").addEventListener("input",function(e){state.q=e.target.value;renderList()});
+  $("f-venue").addEventListener("change",function(e){state.venue=e.target.value;renderList()});
+  $("f-year").addEventListener("change",function(e){state.year=e.target.value;renderList()});
+  $("f-tags").addEventListener("click",function(e){var c=e.target.closest(".chip"); if(!c) return; state.tag=c.dataset.tag; renderList()});
+  Object.keys(ARCH).forEach(function(p){
+    $(p+"-cats").addEventListener("click",function(e){var c=e.target.closest(".chip"); if(!c) return; ARCH[p].cat=c.dataset.cat; renderArchive(p)});
+    $(p+"-more").addEventListener("click",function(){ ARCH[p].all=!ARCH[p].all; renderArchive(p); if(!ARCH[p].all) $(ARCH[p].sec).scrollIntoView(); });
+  });
+  $("venue-list").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-venue]"); if(!b) return;
+    state.venue=b.dataset.venue; state.type=""; $("f-venue").value=state.venue; renderList(); $("works").scrollIntoView();
+  });
+  $("copy").addEventListener("click",function(){
+    var btn=this, done=function(){btn.textContent=UI[lang].copied; setTimeout(function(){btn.textContent=UI[lang].copy},1600)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents($("mail"));var s=getSelection();s.removeAllRanges();s.addRange(r)};
+    try{ navigator.clipboard.writeText(P.email).then(done,sel); }catch(e){ sel(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
