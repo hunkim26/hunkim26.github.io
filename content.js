@@ -52,6 +52,7 @@ window.PORTFOLIO = {
   /* ── 게재처: 학술지, 학회, 언론사 ───────────────────────── */
   venues: [
     { id: "localstudies", name: { ko: "Local Studies (인천학회)", en: "Local Studies (Incheon Studies Association)" }, url: "https://www.doi.org/10.23338/LOCALSTUDIES.2025.9.1.10" },
+    { id: "jwr",      name: { ko: "한국습지학회지", en: "Journal of Wetlands Research" }, url: "" },
     { id: "kipo",     name: { ko: "특허청 (국내특허)", en: "Korean Intellectual Property Office" }, url: "https://www.kipo.go.kr" },
     { id: "kwra",     name: { ko: "한국수자원학회 학술발표회",       en: "KWRA Annual Conference" }, url: "https://www.kwra.or.kr" },
     { id: "kws",      name: { ko: "한국습지학회 정기학술발표대회",   en: "Korean Wetlands Society Annual Conference" }, url: "" },
@@ -90,6 +91,22 @@ window.PORTFOLIO = {
       url: "https://www.doi.org/10.23338/LOCALSTUDIES.2025.9.1.10"
     },
 
+    {
+      type: "paper", date: "2026-11", venue: "jwr", lang: "ko", featured: true,
+      title: {
+        ko: "도시하천 접근성 편익의 시간적 변화: 서호천 생태하천 복원사업을 중심으로",
+        en: "Temporal Changes in Urban Stream Proximity Benefits: A Hedonic Analysis of Seoho Stream"
+      },
+      authors: { ko: "김경훈, 이호용, 김수전", en: "Kyunghun Kim, Hoyong Lee, Soojun Kim" },
+      detail:  { ko: "게재 확정 · 2026년 4호(11월호) 게재 예정", en: "Accepted · to appear in Issue 4 (November 2026)" },
+      summary: {
+        ko: "주저자 논문. 수원 서호천 생태하천 복원사업 전후의 아파트 실거래 자료에 헤도닉 가격모형을 적용해, 하천 접근성 편익이 시간에 따라 어떻게 달라지는지 분석.",
+        en: "First-authored. Applies hedonic price models to apartment sales before and after the Seoho Stream restoration in Suwon to track how stream proximity benefits change over time."
+      },
+      tags: ["river", "valuation"]
+      /* 학회지에 실리면 추가: url: "논문 링크", doi: "10.xxxx/...", pdf: "materials/파일.pdf" */
+    },
+
     /* 특허 */
     {
       type: "patent", date: "2026-08-28", venue: "kipo", lang: "ko", featured: true,
@@ -97,7 +114,7 @@ window.PORTFOLIO = {
         ko: "바이오차 필터 부유습지 및 이를 이용한 수질정화 및 바이오차 재활용 방법",
         en: "Biochar Filter Floating Wetland and Method for Water Purification and Biochar Recycling Using the Same"
       },
-      authors: { ko: "김수전 (대표발명자), 김경훈 (공동발명자)", en: "Soo Jun Kim (lead inventor), Kyunghun Kim (co-inventor)" },
+      authors: { ko: "김수전 (대표발명자), 김경훈 (공동발명자)", en: "Soojun Kim (lead inventor), Kyunghun Kim (co-inventor)" },
       detail:  { ko: "국내특허 출원 10-2026-0163115 · 출원인 인하대학교 산학협력단", en: "Korean patent application 10-2026-0163115 · Applicant: Inha University Industry-Academic Cooperation Foundation" },
       summary: {
         ko: "바이오차 필터를 단 부유습지로 수중 영양염류(질소·인)를 흡착해 수질을 정화하고, 영양염류를 머금은 바이오차를 회수해 토양개량재로 재활용하는 자원순환형 기술.",
@@ -137,7 +154,7 @@ window.PORTFOLIO = {
         ko: "가뭄지수 간 시차 상관분석을 통한 가뭄 전파 지연시간 평가",
         en: "Evaluating Drought Propagation Lag Time through Lagged Correlation Analysis of Drought Indices"
       },
-      authors: { ko: "김도현, 맹우진, 심은수, 이기영, 김경훈, 김수전", en: "Dohyun Kim, Woojin Maeng, Eunsu Sim, Giyoung Lee, Kyunghun Kim, Soo Jun Kim" },
+      authors: { ko: "김도현, 맹우진, 심은수, 이기영, 김경훈, 김수전", en: "Dohyun Kim, Woojin Maeng, Eunsu Sim, Giyoung Lee, Kyunghun Kim, Soojun Kim" },
       detail:  { ko: "2026 공학교육학술대회 · From Classroom to the Field 세션", en: "2026 Conference · From Classroom to the Field session" },
       award:   { ko: "우수발표논문상", en: "Best Presentation Award" },
       tags: ["drought"]
@@ -172,7 +189,7 @@ window.PORTFOLIO = {
         ko: "바이오차 기반 수질정화-토양개량 연계 시스템의 구축 및 적용성 평가",
         en: "Development and Evaluation of a Biochar-Based Water Purification and Soil Amendment System"
       },
-      authors: { ko: "김도현, 변성현, 심은수, 이기영, 김경훈, 이호용, 김수전", en: "Dohyun Kim, Sunghyun Byun, Eunsu Sim, Giyoung Lee, Kyunghun Kim, Hoyong Lee, Soo Jun Kim" },
+      authors: { ko: "김도현, 변성현, 심은수, 이기영, 김경훈, 이호용, 김수전", en: "Dohyun Kim, Sunghyun Byun, Eunsu Sim, Giyoung Lee, Kyunghun Kim, Hoyong Lee, Soojun Kim" },
       award:   { ko: "우수발표 논문상", en: "Excellent Presentation Award" },
       detail:  { ko: "구두발표 · 부산", en: "Oral presentation · Busan, Korea" },
       tags: ["waterquality"]
@@ -183,7 +200,7 @@ window.PORTFOLIO = {
         ko: "낙동강 유역의 Chl-a 예측을 위한 수질 관측소 군집분석",
         en: "Cluster Analysis of Water Quality Monitoring Stations for Chl-a Prediction in the Nakdong River Basin"
       },
-      authors: { ko: "김경훈, 이승민, 한윤진, 이호용, 한희찬, 김수전", en: "Kyunghun Kim, Seungmin Lee, Yunjin Han, Hoyong Lee, Heechan Han, Soo Jun Kim" },
+      authors: { ko: "김경훈, 이승민, 한윤진, 이호용, 한희찬, 김수전", en: "Kyunghun Kim, Seungmin Lee, Yunjin Han, Hoyong Lee, Heechan Han, Soojun Kim" },
       detail:  { ko: "포스터", en: "Poster" },
       summary: {
         ko: "낙동강 유역 180개 관측소의 수질 15개 항목과 위치정보를 4가지 기법으로 군집화해, PCA+K-means 6개 군집이 최적이고 하류 군집에서 Chl-a가 가장 높게 분리됨을 확인.",
@@ -209,19 +226,19 @@ window.PORTFOLIO = {
         ko: "바이오차 기반 수질개선 기술의 복합효과 및 적용성 검토",
         en: "Assessment of the Multifaceted Effects and Applicability of Biochar-Based Water Quality Improvement Technologies"
       },
-      authors: { ko: "김경훈, 김도현, 심은수, 조중훈, 최재우, 이호용, 김수전", en: "Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Jaewoo Choi, Hoyong Lee, Soo Jun Kim" },
+      authors: { ko: "김경훈, 김도현, 심은수, 조중훈, 최재우, 이호용, 김수전", en: "Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Jaewoo Choi, Hoyong Lee, Soojun Kim" },
       detail:  { ko: "제8회 물공학회 학술발표회 · 학부생 캡스톤 세션 · 포스터", en: "8th Conference · Undergraduate Capstone Session · Poster" },
       pdf:     "materials/2025-11_wes-biochar-poster.pdf",
       award:   { ko: "장려상", en: "Encouragement Award" },
       tags: ["waterquality"]
     },
     {
-      type: "talk", date: "2025-08", venue: "kwsintl", lang: "ko", featured: true,
+      type: "talk", date: "2025-08", venue: "kwsintl", lang: "ko",
       title: {
         ko: "헤도닉 가격모형에 기반한 도심하천복원의 경제적 가치평가",
         en: "Economic Valuation of Urban Stream Restoration Based on a Hedonic Price Model"
       },
-      authors: { ko: "김경훈, 김도현, 심은수, 조중훈, 최재우, 이호용, 김수전", en: "Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Jaewoo Choi, Hoyong Lee, Soo Jun Kim" },
+      authors: { ko: "김경훈, 김도현, 심은수, 조중훈, 최재우, 이호용, 김수전", en: "Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Jaewoo Choi, Hoyong Lee, Soojun Kim" },
       detail:  { ko: "2025 국제학술대회", en: "2025 International Conference" },
       award:   { ko: "우수논문상", en: "Best Paper Award" },
       summary: {
@@ -236,7 +253,7 @@ window.PORTFOLIO = {
         ko: "수생태계 복원을 위한 바이오차의 수질개선 효과 분석",
         en: "Water Quality Improvement Effects of Biochar for Aquatic Ecosystem Restoration"
       },
-      authors: { ko: "최재우, 김경훈, 김도현, 심은수, 조중훈, 이호용, 김수전", en: "Jaewoo Choi, Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Hoyong Lee, Soo Jun Kim" },
+      authors: { ko: "최재우, 김경훈, 김도현, 심은수, 조중훈, 이호용, 김수전", en: "Jaewoo Choi, Kyunghun Kim, Dohyun Kim, Eunsu Sim, Junghoon Cho, Hoyong Lee, Soojun Kim" },
       detail:  { ko: "2025 국제학술대회", en: "2025 International Conference" },
       award:   { ko: "우수논문상", en: "Best Paper Award" },
       tags: ["waterquality"]
