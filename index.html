@@ -3,7 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Research & Writing Portfolio</title>
+<title>김경훈 Kyunghun Kim · 포트폴리오</title>
+<meta name="description" content="인하대학교 스마트시티공학전공 석사과정 김경훈(Kyunghun Kim)의 포트폴리오. 도시하천·물환경 연구, 학술발표, 수상, 기자단 기사와 행사 보고서.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="김경훈 Kyunghun Kim · 포트폴리오">
+<meta property="og:description" content="인하대학교 스마트시티공학전공 석사과정 김경훈(Kyunghun Kim)의 포트폴리오. 도시하천·물환경 연구, 학술발표, 수상, 기자단 기사와 행사 보고서.">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F6B53'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='serif' font-weight='700'%3E%EA%B9%80%3C/text%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +20,7 @@
 :root{
   --paper:#F2F5F2; --surface:#FFFFFF; --ink:#16212A; --muted:#5A6870;
   --grid:#C9DDD1; --line:#DCE5E0; --accent:#1F6B53; --accent-ink:#FFFFFF; --flag:#FFF3C4; --flag-ink:#5A4A00;
-  --t-paper:#2E5E8C; --t-talk:#8A5A1E; --t-article:#1F6B53; --t-press:#6B4E9B;
+  --t-paper:#2E5E8C; --t-talk:#8A5A1E; --t-article:#1F6B53; --t-press:#6B4E9B; --t-patent:#9B3D5A;
   --display:"Hahmlet","Nanum Myeongjo",Georgia,serif;
   --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -22,11 +29,11 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#0F1618; --surface:#162024; --ink:#E4ECE7; --muted:#92A199;
   --grid:#24372F; --line:#22302B; --accent:#74C6A3; --accent-ink:#0F1618; --flag:#3A3315; --flag-ink:#F3E3A0;
-  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; color-scheme:dark}}
+  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; --t-patent:#E39AB1; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#0F1618; --surface:#162024; --ink:#E4ECE7; --muted:#92A199;
   --grid:#24372F; --line:#22302B; --accent:#74C6A3; --accent-ink:#0F1618; --flag:#3A3315; --flag-ink:#F3E3A0;
-  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; color-scheme:dark}
+  --t-paper:#8DB8E3; --t-talk:#E0B378; --t-article:#74C6A3; --t-press:#B9A2E0; --t-patent:#E39AB1; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -75,7 +82,7 @@ h2{font:600 clamp(26px,3.4vw,34px)/1.2 var(--display);margin:0 0 28px;letter-spa
 
 /* type badge */
 .type{font:500 11px/1 var(--mono);letter-spacing:.06em;padding:4px 7px;border-radius:3px;border:1px solid currentColor;white-space:nowrap}
-.type.paper{color:var(--t-paper)} .type.talk{color:var(--t-talk)} .type.article{color:var(--t-article)} .type.press{color:var(--t-press)}
+.type.paper{color:var(--t-paper)} .type.talk{color:var(--t-talk)} .type.article{color:var(--t-article)} .type.press{color:var(--t-press)} .type.patent{color:var(--t-patent)}
 
 /* featured */
 .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -326,13 +333,13 @@ footer{padding-block:40px;color:var(--muted);font:400 12px/1.5 var(--mono);borde
 <script>
 (function(){
   var P = window.PORTFOLIO;
-  var TYPES = ["paper","talk","article","press"];
+  var TYPES = ["paper","patent","talk","article","press"];
   var UI = {
     ko:{nav_works:"연구·글",nav_edu:"학력",nav_career:"경력",h_edu:"학력",h_reports:"행사 보고서",h_ref:"기자단 기사",nav_ref:"기사",co:"공동",h_certs:"자격증",nav_reports:"행사 보고서",rAll:"전체",rMore:function(n){return "전체 "+n+"건 보기"},rLess:"접기",rCount:"건",nav_awards:"수상",nav_about:"소개",nav_contact:"연락",
         h_selected:"대표 성과",h_works:"연구와 글",h_career:"경력",h_awards:"수상",h_venues:"게재처",
         h_about:"소개",h_contact:"연락하기",copy:"주소 복사",copied:"복사됨",
-        type:{paper:"논문",talk:"학술발표",article:"기사",press:"보도"},
-        typePl:{paper:"논문",talk:"학술발표",article:"작성 기사",press:"언론 보도"},
+        type:{paper:"논문",patent:"특허",talk:"학술발표",article:"기사",press:"보도"},
+        typePl:{paper:"논문",patent:"특허",talk:"학술발표",article:"작성 기사",press:"언론 보도"},
         all:"전체",search:"제목·저자 검색",allVenues:"모든 게재처",allYears:"모든 연도",allTags:"모든 주제",
         items:"건",awards:"수상",since:"첫 성과",read:"원문 ↗",visit:"홈페이지 ↗",now:"현재",cv:"이력서 PDF 보기 ↗",cert:"상장 보기 (PDF) ↗",slides:"발표자료 (PDF) ↗",
         shown:function(n,t){return n+"건 / 전체 "+t+"건"},
@@ -341,8 +348,8 @@ footer{padding-block:40px;color:var(--muted);font:400 12px/1.5 var(--mono);borde
     en:{nav_works:"Work",nav_edu:"Education",nav_career:"Experience",h_edu:"Education",h_reports:"Event reports",h_ref:"Reporting",nav_ref:"Articles",co:"Co-written",h_certs:"Certifications",nav_reports:"Reports",rAll:"All",rMore:function(n){return "Show all "+n},rLess:"Show fewer",rCount:"",nav_awards:"Awards",nav_about:"About",nav_contact:"Contact",
         h_selected:"Selected work",h_works:"Research & writing",h_career:"Experience",h_awards:"Awards & honours",h_venues:"Where my work appears",
         h_about:"About me",h_contact:"Get in touch",copy:"Copy address",copied:"Copied",
-        type:{paper:"Paper",talk:"Talk",article:"Article",press:"Press"},
-        typePl:{paper:"Papers",talk:"Talks",article:"My articles",press:"In the press"},
+        type:{paper:"Paper",patent:"Patent",talk:"Talk",article:"Article",press:"Press"},
+        typePl:{paper:"Papers",patent:"Patents",talk:"Talks",article:"My articles",press:"In the press"},
         all:"All",search:"Search titles & authors",allVenues:"All venues",allYears:"All years",allTags:"All topics",
         items:"items",awards:"Awards",since:"Active since",read:"Read ↗",visit:"Website ↗",now:"Present",cv:"View CV (PDF) ↗",cert:"View certificate (PDF) ↗",slides:"Slides / poster (PDF) ↗",
         shown:function(n,t){return n+" of "+t+" items"},
@@ -482,7 +489,7 @@ footer{padding-block:40px;color:var(--muted);font:400 12px/1.5 var(--mono);borde
 
     // venues grouped by dominant type
     var vc={}; works.forEach(function(w){ vc[w.venue]=vc[w.venue]||{n:0,type:w.type}; vc[w.venue].n++; });
-    var groups={paper:[],talk:[],article:[],press:[]};
+    var groups={paper:[],patent:[],talk:[],article:[],press:[]};
     (P.venues||[]).forEach(function(v){ var g=(vc[v.id]&&vc[v.id].type)||"article"; groups[g].push(v); });
     $("venue-list").innerHTML=TYPES.filter(function(k){return groups[k].length}).map(function(k){
       return '<div class="vgroup"><h3>'+u.typePl[k]+'</h3><div class="venues">'+groups[k].map(function(v){

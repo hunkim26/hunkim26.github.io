@@ -52,6 +52,7 @@ window.PORTFOLIO = {
   /* ── 게재처: 학술지, 학회, 언론사 ───────────────────────── */
   venues: [
     { id: "localstudies", name: { ko: "Local Studies (인천학회)", en: "Local Studies (Incheon Studies Association)" }, url: "https://www.doi.org/10.23338/LOCALSTUDIES.2025.9.1.10" },
+    { id: "kipo",     name: { ko: "특허청 (국내특허)", en: "Korean Intellectual Property Office" }, url: "https://www.kipo.go.kr" },
     { id: "kwra",     name: { ko: "한국수자원학회 학술발표회",       en: "KWRA Annual Conference" }, url: "https://www.kwra.or.kr" },
     { id: "kws",      name: { ko: "한국습지학회 정기학술발표대회",   en: "Korean Wetlands Society Annual Conference" }, url: "" },
     { id: "kwsintl",  name: { ko: "한국습지학회 국제학술대회",       en: "Korean Wetlands Society International Conference" }, url: "" },
@@ -89,9 +90,25 @@ window.PORTFOLIO = {
       url: "https://www.doi.org/10.23338/LOCALSTUDIES.2025.9.1.10"
     },
 
+    /* 특허 */
+    {
+      type: "patent", date: "2026-08-28", venue: "kipo", lang: "ko", featured: true,
+      title: {
+        ko: "바이오차 필터 부유습지 및 이를 이용한 수질정화 및 바이오차 재활용 방법",
+        en: "Biochar Filter Floating Wetland and Method for Water Purification and Biochar Recycling Using the Same"
+      },
+      authors: { ko: "김수전 (대표발명자), 김경훈 (공동발명자)", en: "Soo Jun Kim (lead inventor), Kyunghun Kim (co-inventor)" },
+      detail:  { ko: "국내특허 출원 10-2026-0163115 · 출원인 인하대학교 산학협력단", en: "Korean patent application 10-2026-0163115 · Applicant: Inha University Industry-Academic Cooperation Foundation" },
+      summary: {
+        ko: "바이오차 필터를 단 부유습지로 수중 영양염류(질소·인)를 흡착해 수질을 정화하고, 영양염류를 머금은 바이오차를 회수해 토양개량재로 재활용하는 자원순환형 기술.",
+        en: "A floating wetland with a removable biochar filter that adsorbs nitrogen and phosphorus from water, then recovers the nutrient-laden biochar for reuse as a soil amendment."
+      },
+      tags: ["waterquality"]
+    },
+
     /* 학술대회 발표 */
     {
-      type: "talk", date: "2026-08", venue: "aogs", lang: "en", featured: true,
+      type: "talk", date: "2026-08", venue: "aogs", lang: "en",
       title: {
         ko: "헤도닉 가격모형을 활용한 도시하천 복원의 경제적 효과 분석",
         en: "Analysis of the Economic Effects of Urban Stream Restoration Using a Hedonic Price Model"
