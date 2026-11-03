@@ -475,6 +475,18 @@ window.PORTFOLIO = {
   /* ── 자격증 ──────────────────────────────────────────────
      { date: "2025-06", title: { ko: "자격증 이름", en: "Certificate" }, org: { ko: "발급 기관", en: "Issuer" }, pdf: "certs/파일.pdf" } */
   certs: [
+    { date: "2024-03-22", title: { ko: "데이터분석 준전문가 (ADsP)", en: "Advanced Data Analytics Semi-Professional (ADsP)" },
+      org:  { ko: "한국데이터산업진흥원 · 국가공인", en: "Korea Data Agency · nationally accredited" },
+      note: { ko: "자격번호 ADsP-040006423", en: "No. ADsP-040006423" },
+      pdf:  "certs/2024-03_adsp.pdf" },
+    { date: "2023-08-25", title: { ko: "한국사능력검정시험 2급", en: "Korean History Proficiency Test, Level 2" },
+      org:  { ko: "국사편찬위원회 · 제66회", en: "National Institute of Korean History · 66th test" },
+      note: { ko: "인증번호 66-217497", en: "No. 66-217497" },
+      pdf:  "certs/2023-08_korean-history-2.pdf" },
+    { date: "2013-09-27", title: { ko: "DIAT 디지털정보활용능력 (5과목)", en: "DIAT Digital Information Literacy (5 subjects)" },
+      org:  { ko: "한국정보통신진흥협회", en: "Korea Association for ICT Promotion" },
+      note: { ko: "워드프로세서·프리젠테이션·스프레드시트·인터넷정보검색 고급, 정보통신상식 중급 (2011–2013) · 자격번호 DIAT-2011-025795",
+              en: "Advanced in word processing, presentation, spreadsheet and internet search; intermediate in ICT literacy (2011–2013) · No. DIAT-2011-025795" } }
   ],
 
   /* ── 학력 ─── end 를 "" 로 두면 '현재'로 표시됩니다. ───── */
