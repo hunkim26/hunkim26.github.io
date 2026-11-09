@@ -63,6 +63,7 @@ window.PORTFOLIO = {
     { id: "iahr",     name: { ko: "IAHR APD 2026",                 en: "IAHR APD 2026" }, url: "https://www.iahr.org" },
     { id: "incheon",  name: { ko: "인천학회 학술대회",               en: "Incheon Studies Association Conference" }, url: "" },
     { id: "ksce",     name: { ko: "대한토목학회 KSCE 2026 CONVENTION", en: "KSCE 2026 Convention" }, url: "https://www.ksce.or.kr" },
+    { id: "envmonthly", name: { ko: "월간 환경", en: "The Environment Monthly" }, url: "" },
     { id: "ref",      name: { ko: "대학생신재생에너지기자단 (R.E.F)", en: "Renewable Energy Followers (R.E.F)" }, url: "https://renewableenergyfollowers.org/" },
     { id: "electimes", name: { ko: "전기신문", en: "Electimes" }, url: "https://www.electimes.com" },
     { id: "mpmbc",    name: { ko: "목포MBC", en: "Mokpo MBC" }, url: "https://www.mpmbc.co.kr" },
@@ -267,6 +268,58 @@ window.PORTFOLIO = {
       authors: { ko: "김경훈", en: "Kyunghun Kim" },
       detail:  { ko: "2025 동계학술발표대회 · 구두발표 · 인천", en: "2025 Winter Conference · Oral presentation · Incheon" },
       tags: ["river", "valuation"]
+    }
+
+    /* 월간 환경 기고 (대학생신재생에너지기자단 × 월간 환경 연재 '대신기의 생각')
+       「확인 필요」 date: 게재 호(예: "2023-07")를 알려주시면 고칠 것 */
+    ,{
+      type: "article", date: "2024", venue: "envmonthly", lang: "ko",
+      title:   { ko: "지난해 대한민국 환경정책은 몇 점?", en: "How Did Korea's Environmental Policy Score Last Year?" },
+      authors: { ko: "김경훈", en: "Kyunghun Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: ["policy"]
+    }
+    ,{
+      type: "article", date: "2024", venue: "envmonthly", lang: "ko",
+      title:   { ko: "‘환경에 대한 세대 간 기억상실’ 해결책은?", en: "Solving 'Environmental Generational Amnesia'" },
+      authors: { ko: "김경훈, 김용대, 이지혜", en: "Kyunghun Kim, Yongdae Kim, Jihye Lee" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: ["energy"]
+    }
+    ,{
+      type: "article", date: "2023", venue: "envmonthly", lang: "ko",
+      title:   { ko: "굴포천 생태하천 복원사업, 득일까 실일까?", en: "Gulpo Stream Restoration: Gain or Loss?" },
+      authors: { ko: "김경훈", en: "Kyunghun Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: ["river"]
+    }
+    ,{
+      type: "article", date: "2023", venue: "envmonthly", lang: "ko",
+      title:   { ko: "도시 침수만 막은 생태하천 복원 ‘부천 심곡천’", en: "Simgok Stream in Bucheon: A Restoration That Only Stopped Urban Flooding" },
+      authors: { ko: "김경훈", en: "Kyunghun Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: ["river", "flood"]
+    }
+    ,{
+      type: "article", date: "2023", venue: "envmonthly", lang: "ko",
+      title:   { ko: "쓰레기 매립지에서 억새 축제를 열기까지", en: "From Landfill to Silver Grass Festival" },
+      authors: { ko: "김경훈", en: "Kyunghun Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: []
+    }
+    ,{
+      type: "article", date: "2023", venue: "envmonthly", lang: "ko",
+      title:   { ko: "기후위기와 전쟁이 가져온 불평등", en: "The Inequality Brought by Climate Crisis and War" },
+      authors: { ko: "김경훈", en: "Kyunghun Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: []
+    }
+    ,{
+      type: "article", date: "2023", venue: "envmonthly", lang: "ko",
+      title:   { ko: "‘티끌 모아 태산’ 재활용으로 실현하는 자원순환", en: "Many a Little Makes a Mickle: Circular Resources through Recycling" },
+      authors: { ko: "박주은, 김경훈, 김용대", en: "Jueun Park, Kyunghun Kim, Yongdae Kim" },
+      detail:  { ko: "기고 · '대신기의 생각' 연재", en: "Contributed column · 'Student Reporters' Thoughts' series" },
+      tags: []
     }
 
     /* 언론 보도 (나·기자단이 소개된 기사). also 에 같은 소식을 다룬 다른 매체 링크 */
